@@ -1,40 +1,23 @@
-import React from 'react'
-
 function Home() {
-    return (
-        <>
-            <div style={{
-                width: "100vw",
-                display: "flex",
-                justifyContent: "center"
-            }}>
-                <div>
-                    <div style={{
-                         width: "80vw",
-                         display: "flex",
-                         flexDirection: "column",
-                         alignItems: "center"
-                    }}>
-                        <h2>Seja Bem Vinde!</h2>
-                        <p>Expresse aqui seus pensamentos e opniões</p>
-                    </div>
+  return (
+    <div className="min-h-screen flex justify-center items-center bg-[#f4f7f5] px-4">
+      <div className="max-w-3xl flex flex-col items-center gap-8 p-8">
 
-                    <div style={{
-                         width: "80vw",
-                         display: "flex",
-                         flexDirection: "column",
-                         alignItems: "center"
-                    }}>
-                        <img 
-                            src="https://i.imgur.com/VpwApCU.png" 
-                            alt="Imagem da Página Home" 
-                            width="400px"
-                        />
-                    </div>
-                </div>
-            </div>
-        </>
-    )
+        <h2 className="text-4xl font-bold text-[#070707]">Página Aberta 🌻</h2>
+
+        <p className="text-lg text-[#070707] text-center max-w-md">
+          Aqui é um espaço livre para compartilhar pensamentos, opiniões e histórias. 
+          Sinta-se à vontade para explorar e se expressar com autenticidade.
+        </p>
+        <img
+          src="src/assets/larissa.jpeg"
+          alt="Imagem da Página Home"
+          width="600px"
+          className="rounded-2xl shadow-lg"
+        />
+      </div>
+    </div>
+  )
 }
 
 export default Home
