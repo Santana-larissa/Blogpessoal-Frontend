@@ -24,8 +24,9 @@ useEffect(() => {
     if (usuario.id !== 0) {
       retornar();
   }
-}, [usuario])
+}, [retornar, usuario]);
 
+// eslint-disable-next-line react-hooks/exhaustive-deps
 function retornar() {
     navigate('/login'); 
 }
@@ -43,7 +44,7 @@ function handleConfirmarSenha(e: ChangeEvent<HTMLInputElement>) {
   setConfirmarSenha(e.target.value)
 }
 
-function cadastrarNovoUsuario(e: ChangeEvent<HTMLFormElement>) {
+  async function cadastrarNovoUsuario(e: ChangeEvent<HTMLFormElement>) {
   e.preventDefault();
 
   if(usuario.senha === confirmarSenha && usuario.senha.length >= 8) {
@@ -52,6 +53,7 @@ function cadastrarNovoUsuario(e: ChangeEvent<HTMLFormElement>) {
 
   
   try {
+    
     await cadastrarUsuario(`/usuarios/cadastrar`, usuario, setUsuario);
 
     alert('Usuário cadastrado com sucesso!');
@@ -85,7 +87,7 @@ function cadastrarNovoUsuario(e: ChangeEvent<HTMLFormElement>) {
 
         <div className="fundoCadastro hidden lg:block"></div>
 
-        <form className='flex justify-center items-center flex-col w-2/3 gap-3' onSumit={cadastrarNovoUsuario} >
+        <form className='flex justify-center items-center flex-col w-2/3 gap-3' onSubmit={cadastrarNovoUsuario} >
 
           <h2 className='text-slate-900 text-5xl'>Cadastrar</h2>
 
@@ -99,7 +101,7 @@ function cadastrarNovoUsuario(e: ChangeEvent<HTMLFormElement>) {
               className="border-2 border-slate-700 rounded p-2"
               value={usuario.nome}
               onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
-             
+            
             />
           </div>
           <div className="flex flex-col w-full">
@@ -154,15 +156,14 @@ function cadastrarNovoUsuario(e: ChangeEvent<HTMLFormElement>) {
             <button 
                 type='reset'
                 className='rounded text-white bg-red-400 hover:bg-red-700 w-1/2 py-2'
-                onclick={retornar}
-             >
+                onClick={retornar}
+            >
                 Cancelar
             </button>
             <button 
                 type='submit'
-                className='rounded text-white bg-indigo-400 
-                           hover:bg-indigo-900 w-1/2 py-2
-                           flex justify-center' 
+                className='rounded text-white bg-indigo-400  hover:bg-indigo-900 w-1/2 py-2
+                    flex justify-center' 
                 >
                 {isLoading ? (
                 <RotatingLines
