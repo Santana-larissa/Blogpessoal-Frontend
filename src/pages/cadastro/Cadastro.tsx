@@ -98,7 +98,7 @@ function handleConfirmarSenha(e: ChangeEvent<HTMLInputElement>) {
               id="nome"
               name="nome"
               placeholder="Nome"
-              className="border-2 border-slate-700 rounded p-2"
+              className="border-2 border-[#427572] rounded p-2"
               value={usuario.nome}
               onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
             
@@ -111,7 +111,7 @@ function handleConfirmarSenha(e: ChangeEvent<HTMLInputElement>) {
               id="usuario"
               name="usuario"
               placeholder="Usuario"
-              className="border-2 border-slate-700 rounded p-2"
+              className="border-2 border-[#427572] rounded p-2"
               value={usuario.usuario}
               onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
             />
@@ -123,7 +123,7 @@ function handleConfirmarSenha(e: ChangeEvent<HTMLInputElement>) {
               id="foto"
               name="foto"
               placeholder="Foto"
-              className="border-2 border-slate-700 rounded p-2"
+              className="border-2 border-[#427572] rounded p-2"
               value={usuario.foto}
               onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
             />
@@ -135,7 +135,7 @@ function handleConfirmarSenha(e: ChangeEvent<HTMLInputElement>) {
               id="senha"
               name="senha"
               placeholder="Senha"
-              className="border-2 border-slate-700 rounded p-2"
+              className="border-2 border-[#427572] rounded p-2"
               value={usuario.senha}
               onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
             />
@@ -147,7 +147,7 @@ function handleConfirmarSenha(e: ChangeEvent<HTMLInputElement>) {
               id="confirmarSenha"
               name="confirmarSenha"
               placeholder="Confirmar Senha"
-              className="border-2 border-slate-700 rounded p-2"
+              className="border-2 border-[#427572] rounded p-2"
               value={confirmarSenha}
               onChange={(e: ChangeEvent<HTMLInputElement>) => handleConfirmarSenha(e)}
             />
@@ -155,14 +155,14 @@ function handleConfirmarSenha(e: ChangeEvent<HTMLInputElement>) {
           <div className="flex justify-around w-full gap-8">
             <button 
                 type='reset'
-                className='rounded text-white bg-red-400 hover:bg-red-700 w-1/2 py-2'
+                className='rounded text-white bg-[#427572] hover:bg-red-700 w-1/2 py-2'
                 onClick={retornar}
             >
                 Cancelar
             </button>
             <button 
                 type='submit'
-                className='rounded text-white bg-indigo-400  hover:bg-indigo-900 w-1/2 py-2
+                className='rounded text-white bg-[#427572] hover:bg-indigo-900 w-1/2 py-2
                     flex justify-center' 
                 >
                 {isLoading ? (

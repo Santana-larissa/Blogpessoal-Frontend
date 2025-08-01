@@ -35,18 +35,11 @@ function Login() {
         handleLogin(usuarioLogin)
     }
 
-    return (
-  <form onSubmit={login}>
-    {/* seus inputs */}
-    <button type="submit">Entrar</button>
-  </form>
-);
-
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 h-screen">
       
       {/* Coluna do formulário */}
-      <form className="flex flex-col w-1/2 gap-6 mx-auto p-10 bg-[#d8b8a3] rounded-lg shadow-lg">
+      <form className="flex flex-col w-1/2 gap-6 mx-auto p-10 bg-[#f7f7f7]  rounded-lg shadow-lg" onSubmit={login}>
   <h2 className="text-4xl font-bold text-[#4A3C31] mb-6">Entrar</h2>
 
         <div className="flex flex-col w-full">
