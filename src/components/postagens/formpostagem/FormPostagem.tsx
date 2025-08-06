@@ -5,6 +5,7 @@ import Postagem from "../../../model/Postagem";
 import Tema from "../../../model/Tema";
 import { buscar, atualizar, cadastrar } from "../../../services/Service";
 import { RotatingLines } from "react-loader-spinner";
+import { ToastAlerta } from "../../../utils/ToastAlerta";
 
 function FormPostagem() {
 
@@ -62,7 +63,7 @@ const navigate = useNavigate();
 
     useEffect(() => {
         if (token === '') {
-            alert('Você precisa estar logado');
+            ToastAlerta('Você precisa estar logado', 'erro');
             navigate('/');
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -110,14 +111,14 @@ const navigate = useNavigate();
                     },
                 });
 
-                alert('Postagem atualizada com sucesso')
+                ToastAlerta('Postagem atualizada com sucesso', 'sucesso')
 
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             } catch (error: any) {
                 if (error.toString().includes('403')) {
                     handleLogout()
                 } else {
-                    alert('Erro ao atualizar a Postagem')
+                    ToastAlerta('Erro ao atualizar a Postagem', 'erro')
                 }
             }
 
@@ -129,14 +130,14 @@ const navigate = useNavigate();
                     },
                 })
 
-                alert('Postagem cadastrada com sucesso');
+                ToastAlerta('Postagem cadastrada com sucesso', 'sucesso');
 
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             } catch (error: any) {
                 if (error.toString().includes('403')) {
                     handleLogout()
                 } else {
-                    alert('Erro ao cadastrar a Postagem');
+                    ToastAlerta('Erro ao cadastrar a Postagem', 'erro');
                 }
             }
         }

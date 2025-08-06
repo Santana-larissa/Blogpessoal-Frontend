@@ -5,6 +5,7 @@ import { AuthContext } from "../../../context/AuthContext";
 import  Tema  from '../../../model/Tema';
 import CardTemas from "../cardtemas/CardTemas";
 import { buscar } from "../../../services/Service";
+import { ToastAlerta } from "../../../utils/ToastAlerta";
 
 function ListaTemas() {
 
@@ -30,7 +31,7 @@ function ListaTemas() {
 
     useEffect(() => {
         if (token === '') {
-            alert('Você precisa estar logado!')
+            ToastAlerta('Você precisa estar logado!', 'erro')
             navigate('/')
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps

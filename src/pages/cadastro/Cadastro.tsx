@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import './Cadastro.css';
 import { cadastrarUsuario } from '../../services/Service';
 import { RotatingLines } from 'react-loader-spinner'; 
+import { ToastAlerta } from '../../utils/ToastAlerta';
 
 function Cadastro() {
 
@@ -56,20 +57,18 @@ function handleConfirmarSenha(e: ChangeEvent<HTMLInputElement>) {
     
     await cadastrarUsuario(`/usuarios/cadastrar`, usuario, setUsuario);
 
-    alert('Usuário cadastrado com sucesso!');
+    ToastAlerta('Usuário cadastrado com sucesso!', 'sucesso');
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (error) {
     
-    alert('Erro ao cadastrar o usuário!');
+    ToastAlerta('Erro ao cadastrar o usuário!', 'erro');
   }
 
 
   } else {
 
-    alert(
-
-    );
+    ToastAlerta('As senhas não coincidem!', 'erro');
 
     setUsuario({...usuario, senha: ''})
     setConfirmarSenha('');
